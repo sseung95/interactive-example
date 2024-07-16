@@ -34,6 +34,7 @@ const SpotlightButton = () => {
 
   return (
     <motion.button
+      whileTap={{ scale: 0.985, rotate: '2.5deg' }}
       ref={btnRef}
       className="relative w-full max-w-xs overflow-hidden rounded-lg bg-slate-950 px-4 py-6 text-lg font-medium text-white"
     >
