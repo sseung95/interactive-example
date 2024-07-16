@@ -14,11 +14,12 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col gap-8">
-        <h1 className="text-2xl font-medium text-slate-900 dark:text-slate-200">Framer Motion Components</h1>
+        <h1 className="text-2xl font-medium text-slate-900 dark:text-slate-200">Framer Motion Example Components</h1>
         <div className="flex items-start gap-4">
-          <LinkButton label="bubble text" link="/tutorial/bubbleText" />
-          <LinkButton label="spotlight button" link="/tutorial/button" />
-          <LinkButton label="horizontal scroll" link="/tutorial/horizontalScroll" />
+          <LinkButton label="bubble text" link="/example/bubbleText" />
+          <LinkButton label="spotlight button" link="/example/button" />
+          <LinkButton label="horizontal scroll" link="/example/horizontalScroll" />
+          <LinkButton label="reveal link" link="/example/revealLink" />
         </div>
       </div>
     </div>
