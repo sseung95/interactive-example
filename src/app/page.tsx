@@ -20,6 +20,7 @@ export default function Home() {
           <LinkButton label="spotlight button" link="/example/button" />
           <LinkButton label="horizontal scroll" link="/example/horizontalScroll" />
           <LinkButton label="reveal link" link="/example/revealLink" />
+          <LinkButton label="scroll zoom out" link="/example/zoom" />
         </div>
       </div>
     </div>
