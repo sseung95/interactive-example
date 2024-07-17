@@ -24,6 +24,7 @@ export default function Home() {
           <LinkButton label="gradient text" link="/example/gradientText" />
           <LinkButton label="perspective section" link="/example/perspectiveSection" />
           <LinkButton label="parallax scroll" link="/example/parallaxScroll" />
+          <LinkButton label="info section" link="/example/infoSection" />
         </div>
       </div>
     </div>
