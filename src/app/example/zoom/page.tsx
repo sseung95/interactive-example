@@ -1,6 +1,7 @@
 'use client';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import Lenis from 'lenis';
 
 const page = () => {
   const zoomRef = useRef(null);
@@ -14,6 +15,17 @@ const page = () => {
   const isInViewNextRef = useInView(nextRef);
 
   const isExpansion = isInViewBgRef && !isInViewNextRef;
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <div className="relative">
