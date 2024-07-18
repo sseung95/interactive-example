@@ -1,5 +1,5 @@
 'use client';
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { motion, MotionConfig, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Lenis from 'lenis';
 
@@ -31,58 +31,108 @@ const InfoCards = () => {
     requestAnimationFrame(raf);
   }, []);
 
-  useEffect(() => {
-    console.log(curSection);
-  }, [curSection]);
-
   return (
-    <div ref={ref} className="flex flex-col gap-24 h-[700vh] bg-black p-20">
+    <div ref={ref} className="flex flex-col gap-24 h-[400vh] bg-black p-20">
       <div className="sticky top-[50%] -translate-y-[50%] flex gap-[80px]">
         <div className="flex-1 place-self-end text-right">
-          <div>
-            <motion.h2 className={`text-[#efece6] ${curSection === 1 ? visibleTitleStyle : hiddenTitleStyle}`}>
-              이것저것 없이
-            </motion.h2>
-            <motion.div className={`${curSection <= 1 ? visibleDescriptStyle : hiddenDescriptStyle}`}>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-            </motion.div>
-          </div>
-          <div>
-            <motion.h2 className={`text-[#efece6] ${curSection === 2 ? visibleTitleStyle : hiddenTitleStyle}`}>
-              삼것저것 없이
-            </motion.h2>
-            <motion.div className={`${curSection === 2 ? visibleDescriptStyle : hiddenDescriptStyle}`}>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-            </motion.div>
-          </div>
-          <div>
-            <motion.h2 className={`text-[#efece6] ${curSection === 3 ? visibleTitleStyle : hiddenTitleStyle}`}>
-              사것저것 없이
-            </motion.h2>
-            <motion.div className={`${curSection === 3 ? visibleDescriptStyle : hiddenDescriptStyle}`}>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-            </motion.div>
-          </div>
-          <div>
-            <motion.h2 className={`text-[#efece6] ${curSection >= 4 ? visibleTitleStyle : hiddenTitleStyle}`}>
-              오것저것 없이
-            </motion.h2>
-            <motion.div className={`${curSection >= 4 ? visibleDescriptStyle : hiddenDescriptStyle}`}>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-              <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
-            </motion.div>
-          </div>
+          <MotionConfig
+            transition={{
+              duration: 0.35,
+            }}
+          >
+            <div>
+              <motion.h2
+                className={`text-[#efece6] ${hiddenTitleStyle}`}
+                animate={{
+                  fontSize: curSection === 1 ? '90px' : '60px',
+                  opacity: curSection === 1 ? 1 : 0.2,
+                }}
+              >
+                이것저것 없이
+              </motion.h2>
+              <motion.div
+                className={hiddenDescriptStyle}
+                animate={{
+                  height: curSection === 1 ? '120px' : '0px',
+                  opacity: curSection === 1 ? 1 : 0.2,
+                }}
+              >
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+              </motion.div>
+            </div>
+            <div>
+              <motion.h2
+                className={`text-[#efece6] ${hiddenTitleStyle}`}
+                animate={{
+                  fontSize: curSection === 2 ? '90px' : '60px',
+                  opacity: curSection === 2 ? 1 : 0.2,
+                }}
+              >
+                이것저것 없이
+              </motion.h2>
+              <motion.div
+                className={hiddenDescriptStyle}
+                animate={{
+                  height: curSection === 2 ? '120px' : '0px',
+                  opacity: curSection === 2 ? 1 : 0.2,
+                }}
+              >
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+              </motion.div>
+            </div>
+            <div>
+              <motion.h2
+                className={`text-[#efece6] ${hiddenTitleStyle}`}
+                animate={{
+                  fontSize: curSection === 3 ? '90px' : '60px',
+                  opacity: curSection === 3 ? 1 : 0.2,
+                }}
+              >
+                이것저것 없이
+              </motion.h2>
+              <motion.div
+                className={hiddenDescriptStyle}
+                animate={{
+                  height: curSection === 3 ? '120px' : '0px',
+                  opacity: curSection === 3 ? 1 : 0.2,
+                }}
+              >
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+              </motion.div>
+            </div>
+            <div>
+              <motion.h2
+                className={`text-[#efece6] ${hiddenTitleStyle}`}
+                animate={{
+                  fontSize: curSection >= 4 ? '90px' : '60px',
+                  opacity: curSection >= 4 ? 1 : 0.2,
+                }}
+              >
+                이것저것 없이
+              </motion.h2>
+              <motion.div
+                className={hiddenDescriptStyle}
+                animate={{
+                  height: curSection >= 4 ? '120px' : '0px',
+                  opacity: curSection >= 4 ? 1 : 0.2,
+                }}
+              >
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+                <p className="text-[20px] text-[#efece6] font-light">우리는 어쩌구 저쩌구 우리는 어쩌구 저쩌구</p>
+              </motion.div>
+            </div>
+          </MotionConfig>
         </div>
         <div className="h-[80vh] w-[40vw] min-w-[400px] max-w-[800px] bg-[#efece6] rounded-[32px]"></div>
       </div>
