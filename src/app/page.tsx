@@ -25,6 +25,8 @@ export default function Home() {
           <LinkButton label="perspective section" link="/example/perspectiveSection" />
           <LinkButton label="parallax scroll" link="/example/parallaxScroll" />
           <LinkButton label="info section" link="/example/infoSection" />
+          <LinkButton label="spread & bottom up" link="/example/spread" />
+          <LinkButton label="big cta button" link="/example/cta" />
         </div>
       </div>
     </div>
