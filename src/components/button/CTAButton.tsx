@@ -41,6 +41,8 @@ const CTAButton = () => {
         borderRadius: '200px',
         border: '0.1px solid rgb(157, 66, 251)',
       }}
+      initial="initial"
+      whileHover="hovered"
     >
       <Link
         href="#"
@@ -51,14 +53,40 @@ const CTAButton = () => {
           backgroundColor: 'rgb(157, 66, 251)',
           borderRadius: '200px',
           boxShadow: 'rgb(0, 0, 0) 0px 32px 50px 0px, rgba(255, 255, 255, 0.4) -24px -16px 48px 0px inset',
+          cursor: 'none',
         }}
       >
-        <div style={{ pointerEvents: 'none', zIndex: 2 }}>
-          <motion.span>무료로 시작하기</motion.span>
+        <div className="relative overflow-hidden" style={{ pointerEvents: 'none', zIndex: 2 }}>
+          <motion.div
+            // className="inline-block"
+            variants={{
+              initial: { y: 0 },
+              hovered: { y: '-100%' },
+            }}
+            transition={{
+              duration: 0.5,
+              ease: 'circOut',
+            }}
+          >
+            무료로 시작하기
+          </motion.div>
+          <motion.div
+            className="absolute top-0 left-0"
+            variants={{
+              initial: { y: '100%' },
+              hovered: { y: 0 },
+            }}
+            transition={{
+              duration: 0.5,
+              ease: 'circOut',
+            }}
+          >
+            무료로 시작하기
+          </motion.div>
         </div>
         <div
           ref={spanRef}
-          className="pointer-events-none absolute -translate-x-[50%] -translate-y-[50%] h-[250px] w-[250px] rounded-full bg-black text-white flex items-center justify-center text-[80px] font-normal"
+          className="pointer-events-none absolute -translate-x-[50%] -translate-y-[50%] h-[250px] w-[250px] rounded-full bg-black text-white flex items-center justify-center text-[80px] font-light"
           style={{ visibility: isShowCursor ? 'visible' : 'hidden', top: cursorTop, left: cursorLeft }}
         >
           {`->`}
