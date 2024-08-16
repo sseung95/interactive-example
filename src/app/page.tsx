@@ -4,6 +4,12 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-24 h-screen bg-black p-20">
       <div className="flex flex-col gap-8">
+        <h1 className="text-2xl font-medium text-slate-900 dark:text-slate-200">CSS Only Example</h1>
+        <div className="flex items-start gap-4">
+          <LinkButton label="infinite marquee" link="/css/marquee" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-8">
         <h1 className="text-2xl font-medium text-slate-900 dark:text-slate-200">Framer Motion Practice</h1>
         <div className="flex items-start gap-4">
           <LinkButton label="animationControls" link="/tutorial/animationControls" />
