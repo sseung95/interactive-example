@@ -8,7 +8,7 @@ import Pic2 from '../../../../public/images/2.jpeg';
 import Pic3 from '../../../../public/images/3.jpg';
 import Pic4 from '../../../../public/images/4.jpg';
 
-const page = () => {
+const PerspectiveSectionPage = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -99,4 +99,4 @@ const Section4 = ({ scrollYProgress }: any) => {
   );
 };
 
-export default page;
+export default PerspectiveSectionPage;

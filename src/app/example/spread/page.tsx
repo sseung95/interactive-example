@@ -5,7 +5,7 @@ import Lenis from 'lenis';
 import Spread from '@/components/Spread';
 import InfoChange from '@/components/InfoChange';
 
-const page = () => {
+const SpreadPage = () => {
   useEffect(() => {
     const lenis = new Lenis();
 
@@ -28,4 +28,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SpreadPage;

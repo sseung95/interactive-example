@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import Lenis from 'lenis';
 
-const page = () => {
+const ZoomPage = () => {
   const zoomRef = useRef(null);
   const { scrollYProgress: zoomScrollYProgress } = useScroll({ target: zoomRef });
   const zoomScale = useTransform(zoomScrollYProgress, [0, 0.5], [1, 0.8]);
@@ -77,4 +77,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ZoomPage;

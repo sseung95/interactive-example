@@ -130,3 +130,5 @@ const InfoSection = forwardRef<HTMLDivElement, { title: string; description: str
     );
   }
 );
+
+InfoSection.displayName = 'InfoSection';

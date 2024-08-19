@@ -10,7 +10,7 @@ import Lenis from 'lenis';
 
 const word = 'with framer-motion';
 
-export default function ParallaxScroll() {
+const ParallaxScroll = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -55,14 +55,9 @@ export default function ParallaxScroll() {
         <h1>Scroll</h1>
         <div className={styles.word}>
           <p>
-            {word.split('').map((letter, i) => {
-              const y = useTransform(scrollYProgress, [0, 1], [0, Math.floor(Math.random() * -75) - 25]);
-              return (
-                <motion.span style={{ top: y }} key={`l_${i}`}>
-                  {letter}
-                </motion.span>
-              );
-            })}
+            {word.split('').map((letter, i) => (
+              <Word key={`p-word-${i}`} scrollYProgress={scrollYProgress} letter={letter} i={i} />
+            ))}
           </p>
         </div>
       </div>
@@ -84,4 +79,16 @@ export default function ParallaxScroll() {
       </div>
     </div>
   );
-}
+};
+
+export default ParallaxScroll;
+
+const Word = ({ scrollYProgress, letter, i }: { scrollYProgress: any; letter: string; i: number }) => {
+  const y = useTransform(scrollYProgress, [0, 1], [0, Math.floor(Math.random() * -75) - 25]);
+
+  return (
+    <motion.span style={{ top: y }} key={`l_${i}`}>
+      {letter}
+    </motion.span>
+  );
+};
